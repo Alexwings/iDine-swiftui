@@ -12,6 +12,9 @@
 		EA3A682624400CDF00185A3D /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3A682524400CDF00185A3D /* OrderView.swift */; };
 		EA3A68282440951600185A3D /* MenuItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3A68272440951600185A3D /* MenuItemRow.swift */; };
 		EA3A682A24409FBD00185A3D /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3A682924409FBD00185A3D /* AppView.swift */; };
+		EA57328F2454712A00073426 /* OrderItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA57328E2454712A00073426 /* OrderItemRow.swift */; };
+		EA573291245481AA00073426 /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA573290245481AA00073426 /* PaymentView.swift */; };
+		EA5732932455C25C00073426 /* SimpleStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5732922455C25C00073426 /* SimpleStepper.swift */; };
 		EAEC93D9242F7E750064B696 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEC93D8242F7E750064B696 /* AppDelegate.swift */; };
 		EAEC93DB242F7E750064B696 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEC93DA242F7E750064B696 /* SceneDelegate.swift */; };
 		EAEC93DD242F7E750064B696 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEC93DC242F7E750064B696 /* ContentView.swift */; };
@@ -30,6 +33,9 @@
 		EA3A682524400CDF00185A3D /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
 		EA3A68272440951600185A3D /* MenuItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemRow.swift; sourceTree = "<group>"; };
 		EA3A682924409FBD00185A3D /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
+		EA57328E2454712A00073426 /* OrderItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItemRow.swift; sourceTree = "<group>"; };
+		EA573290245481AA00073426 /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
+		EA5732922455C25C00073426 /* SimpleStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleStepper.swift; sourceTree = "<group>"; };
 		EAEC93D5242F7E750064B696 /* iDine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iDine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAEC93D8242F7E750064B696 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAEC93DA242F7E750064B696 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,9 +91,12 @@
 				EAEC93F0242F855A0064B696 /* Menu.swift */,
 				EAEC93F2242F8B560064B696 /* Order.swift */,
 				EA3A68272440951600185A3D /* MenuItemRow.swift */,
+				EA57328E2454712A00073426 /* OrderItemRow.swift */,
+				EA5732922455C25C00073426 /* SimpleStepper.swift */,
 				EA3416462434CC08000D02C8 /* ItemRow.swift */,
 				EA3416492434E2F8000D02C8 /* ItemDetail.swift */,
 				EA3A682524400CDF00185A3D /* OrderView.swift */,
+				EA573290245481AA00073426 /* PaymentView.swift */,
 				EAEC93EE242F84C00064B696 /* menu.json */,
 				EAEC93E0242F7E770064B696 /* Preview Content */,
 			);
@@ -174,12 +183,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA57328F2454712A00073426 /* OrderItemRow.swift in Sources */,
+				EA5732932455C25C00073426 /* SimpleStepper.swift in Sources */,
 				EAEC93F3242F8B560064B696 /* Order.swift in Sources */,
 				EAEC93D9242F7E750064B696 /* AppDelegate.swift in Sources */,
 				EAEC93DB242F7E750064B696 /* SceneDelegate.swift in Sources */,
 				EA3416472434CC08000D02C8 /* ItemRow.swift in Sources */,
 				EA3A682A24409FBD00185A3D /* AppView.swift in Sources */,
 				EAEC93DD242F7E750064B696 /* ContentView.swift in Sources */,
+				EA573291245481AA00073426 /* PaymentView.swift in Sources */,
 				EA34164A2434E2F8000D02C8 /* ItemDetail.swift in Sources */,
 				EA3A68282440951600185A3D /* MenuItemRow.swift in Sources */,
 				EA3A682624400CDF00185A3D /* OrderView.swift in Sources */,

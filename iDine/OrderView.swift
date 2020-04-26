@@ -15,12 +15,9 @@ struct OrderView: View {
             List {
                 Section(header: Text("Items"),
                         footer: OrderFooter(totalPrice: order.total)) {
-                    ForEach(order.items) { item in
-                        HStack(alignment: .bottom, spacing: 10) {
-                            ItemRow(item: item)
-                            Text("count: \(self.order.count(for: item))").font(.system(size: 16))
-                        }
-                    }
+                            ForEach(order.items) { item in
+                                OrderItemRow(item: item)
+                            }
                 }
                 .listStyle(DefaultListStyle())
             }.navigationBarTitle("My Order", displayMode: .inline)
@@ -30,17 +27,18 @@ struct OrderView: View {
 
 struct OrderFooter: View {
     let totalPrice: Double
+    @State private  var showingPayment = false
     var body: some View {
-        HStack(alignment: .center) {
+        HStack(alignment: .bottom) {
             Text(String(format: "Total: $%.2f", totalPrice))
             .padding(8)
             .background(Color.green)
             .cornerRadius(8)
                 .foregroundColor(Color.white)
                 .font(.headline)
-            Spacer()
+            Spacer(minLength: 50)
             Button(action: {
-                print("Place Order")
+                self.showingPayment.toggle()
             }) {
                 Text("Place Order")
                 .padding(8)
@@ -48,6 +46,8 @@ struct OrderFooter: View {
                 .cornerRadius(8)
                     .foregroundColor(Color.white)
                     .font(.headline)
+            }.sheet(isPresented: $showingPayment) {
+                return PaymentView()
             }
         }
     }
