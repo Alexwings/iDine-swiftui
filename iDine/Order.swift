@@ -7,10 +7,12 @@
 //
 
 import SwiftUI
+import Foundation
 
 class Order: Identifiable, ObservableObject {
     @Published private(set) var items: [MenuItem] = []
     @Published private var itemCount: [MenuItem: UInt] = [:]
+    private var lock: NSLock = NSLock()
     var totalItemCount: UInt {
         self.itemCount.reduce(0) { (cur, valuePair) -> UInt in
             let (_, value) = valuePair
@@ -22,6 +24,17 @@ class Order: Identifiable, ObservableObject {
             let (key, value) = pair
             return result + key.price * Double(value)
         }
+    }
+    func clearOrder(_ handler: (Bool) -> Void) {
+        guard self.lock.try() else {
+            handler(false)
+            return
+        }
+        self.items.removeAll()
+        self.itemCount.removeAll()
+        handler(self.items.isEmpty && self.itemCount.isEmpty)
+        self.lock.unlock()
+        
     }
     
     func add(item: MenuItem) {

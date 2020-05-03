@@ -10,17 +10,30 @@ import SwiftUI
 
 struct OrderView: View {
     @EnvironmentObject var order: Order
+    @State var shouldShowAlert = false
     var body: some View {
         NavigationView {
             List {
                 Section(header: Text("Items"),
-                        footer: OrderFooter(totalPrice: order.total)) {
+                        footer: OrderFooter(totalPrice: order.total)
+                    .buttonStyle(PlainButtonStyle())
+                ) {
                             ForEach(order.items) { item in
-                                OrderItemRow(item: item)
+                                OrderItemRow(item: item).buttonStyle(PlainButtonStyle())
                             }
                 }
                 .listStyle(DefaultListStyle())
             }.navigationBarTitle("My Order", displayMode: .inline)
+                .navigationBarItems(trailing: Button(action: {
+                    self.order.clearOrder { (success) in
+                        self.shouldShowAlert = !success
+                    }
+                }, label: {
+                    Text("Clear All")
+                }))
+                .alert(isPresented: $shouldShowAlert) { () -> Alert in
+                    Alert(title: Text("Failed to clear"))
+            }
         }
     }
 }

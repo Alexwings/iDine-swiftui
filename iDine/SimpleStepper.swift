@@ -14,22 +14,22 @@ struct SimpleStepper: View {
             self.val
         }
     }
-    @State private var val: Int = 0
+    @State private var val: Int = 1
     private var onIncrement: (() -> Void)?
     private var onDecrement: (() -> Void)?
     
-    init(value thisValue: Int = 0,
+    init(value thisValue: Int,
          onIncrement inc:(() -> Void)? = nil,
          onDecrement dec: (() -> Void)? = nil) {
-         val = thisValue
-        self.onIncrement = inc
-        self.onDecrement = dec
+        self.val = thisValue
+        onIncrement = inc
+        onDecrement = dec
     }
     var body: some View {
         HStack(alignment: .center, spacing: 0){
         Button(action: {
-            self.val += 1
             self.onIncrement?()
+            self.val += 1
         }) {
             Image(systemName: "plus")
         }
@@ -37,11 +37,11 @@ struct SimpleStepper: View {
         .background(Color(UIColor.lightGray))
         .foregroundColor(Color.white)
         .cornerRadius(10)
-            Text("\(self.val)")
+            Text(String(format: "%d", self.val))
                 .padding(EdgeInsets(top: 8, leading: 10, bottom: 8, trailing: 10))
         Button(action: {
-            self.val -= 1
             self.onDecrement?()
+            self.val -= 1
         }) {
             Image(systemName: "minus")
         }
@@ -56,6 +56,6 @@ struct SimpleStepper: View {
 
 struct SimpleStepper_Previews: PreviewProvider {
     static var previews: some View {
-        SimpleStepper()
+        SimpleStepper(value: 1)
     }
 }
