@@ -25,3 +25,10 @@ extension Double {
         return (self * pow(10, Double(num))).rounded() / pow(10, Double(num))
     }
 }
+
+extension String.StringInterpolation {
+    mutating func appendInterpolation(_ msg: String, specifier: String) {
+        let result = String(format: specifier, msg)
+        appendLiteral(result)
+    }
+}

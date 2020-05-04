@@ -40,6 +40,7 @@ struct OrderView: View {
 
 struct OrderFooter: View {
     let totalPrice: Double
+    @EnvironmentObject var order: Order
     @State private  var showingPayment = false
     var body: some View {
         HStack(alignment: .bottom) {
@@ -60,7 +61,7 @@ struct OrderFooter: View {
                     .foregroundColor(Color.white)
                     .font(.headline)
             }.sheet(isPresented: $showingPayment) {
-                return PaymentView()
+                return PaymentView().environmentObject(self.order)
             }
         }
     }
