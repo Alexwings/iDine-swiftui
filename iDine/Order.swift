@@ -62,3 +62,9 @@ class Order: Identifiable, ObservableObject {
         return self.itemCount[item] ?? 0
     }
 }
+
+struct Order_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
+    }
+}
